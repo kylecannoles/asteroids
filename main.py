@@ -36,6 +36,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
+        # update game state
         for obj in updatable:
             obj.update(dt)
 
@@ -44,11 +45,13 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+        # draw to screen buffer
         screen.fill("black")
 
         for obj in drawable:
             obj.draw(screen)
 
+        # display buffer
         pygame.display.flip()
 
         # limit framerate to 60 FPS
